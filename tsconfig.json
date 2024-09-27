@@ -67,7 +67,7 @@
   },
   "include": [
     "src/**/*"
-  ],
+, "src/models/role-feature.ts", "src/models/role.ts", "src/models/user.ts", "src/models/feature.ts", "src/models/person-info.ts"  ],
   "files": [
     "types.d.ts"
   ],
