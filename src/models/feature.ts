@@ -1,4 +1,5 @@
-import { Table, Column, Model, DataType } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, HasMany } from 'sequelize-typescript';
+import RoleFeature from './role-feature';
 
 @Table({
   tableName: 'feature',
@@ -43,4 +44,8 @@ export default class Feature extends Model {
     allowNull: true,
   })
   updated_at!: Date;
+
+  @HasMany(() => RoleFeature)
+  role_features!: RoleFeature[];
 }
+

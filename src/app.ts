@@ -39,8 +39,8 @@ export default async function appFactory(): Promise<Application> {
   });
 
   // Sync the models after the connection is established
-  await testDBConnection();
-  // await testDBConnection().then(syncDatabase);
+  // await testDBConnection();
+  await testDBConnection().then(syncDatabase);
 
   // using json parser and urlencoder
   app.use(jsonParser);

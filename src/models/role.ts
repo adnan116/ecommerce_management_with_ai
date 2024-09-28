@@ -8,11 +8,13 @@ import {
   UpdatedAt,
   HasMany,
 } from "sequelize-typescript";
-import User from "./user"; // Ensure you have the correct import path
+import User from "./user";
+import RoleFeature from "./role-feature";
 
 @Table({
   tableName: "role",
   schema: "users",
+  timestamps: false, // Disable automatic timestamps
 })
 export default class Role extends Model<Role> {
   @Column({
@@ -41,11 +43,8 @@ export default class Role extends Model<Role> {
   })
   created_by!: string;
 
-  @Column({
-    type: DataType.DATE,
-    allowNull: true,
-    defaultValue: DataType.NOW,
-  })
+  @CreatedAt
+  @Column({ type: DataType.DATE, allowNull: true, field: "created_at" })
   created_at!: Date;
 
   @Column({
@@ -54,12 +53,14 @@ export default class Role extends Model<Role> {
   })
   updated_by!: string;
 
-  @Column({
-    type: DataType.DATE,
-    allowNull: true,
-  })
+  @UpdatedAt
+  @Column({ type: DataType.DATE, allowNull: true, field: "updated_at" })
   updated_at!: Date;
+
   // Define the relation to the User model
   @HasMany(() => User)
   users!: User[];
+
+  @HasMany(() => RoleFeature)
+  role_features!: RoleFeature[];
 }

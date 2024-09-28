@@ -158,6 +158,7 @@ export default class UserService {
         userId: user.id,
         username: user.username,
         roleId: user.role_id,
+        userType: user?.role?.role_name,
       };
 
       // Generate a token valid for 1 hour

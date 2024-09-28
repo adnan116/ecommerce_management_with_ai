@@ -12,8 +12,9 @@ import Role from "./role";
 import PersonInfo from "./person-info";
 
 @Table({
-  tableName: "user", 
+  tableName: "user",
   schema: "users",
+  timestamps: false, // Disable automatic timestamps
 })
 export default class User extends Model {
   @Column({
@@ -68,11 +69,18 @@ export default class User extends Model {
   })
   created_by!: string;
 
+  // Explicitly define created_at and updated_at fields
   @CreatedAt
-  @Column({ type: DataType.DATE })
+  @Column({ type: DataType.DATE, field: "created_at" })
   created_at!: Date;
 
+  @Column({
+    type: DataType.TEXT,
+    allowNull: true,
+  })
+  updated_by!: string;
+
   @UpdatedAt
-  @Column({ type: DataType.DATE })
+  @Column({ type: DataType.DATE, field: "updated_at" })
   updated_at!: Date;
 }
