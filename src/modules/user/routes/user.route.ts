@@ -1,14 +1,7 @@
 import express, { NextFunction, Request, Response, Router } from "express";
-import { Paginate } from "../../../utils/pagination.util";
 import Container from "typedi";
 import { wrap } from "../../../middlewares/wraps.middle";
-import { getLongLivedToken } from "../../../utils/jwt.util";
-// import { auth } from "../middlewares/auth.middle";
 import UserService from "../services/user.service";
-import BadRequestError from "../../../errors/bad-request.error";
-import PersonInfo from "../../../models/person-info";
-import bcrypt from "bcrypt";
-import User from "../../../models/user";
 import {
   IUserSignupData,
   IUserSignupResponse,

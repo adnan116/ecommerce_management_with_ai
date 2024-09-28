@@ -11,6 +11,7 @@ import { sequelize, testDBConnection, syncDatabase } from "./configs/db";
 
 // importing modules
 import * as userModule from "./modules/user";
+import * as ecommerceModule from "./modules/ecommerce";
 
 export default async function appFactory(): Promise<Application> {
   // express app init
@@ -65,6 +66,7 @@ export default async function appFactory(): Promise<Application> {
    * Register Modules
    */
   userModule.init(app);
+  ecommerceModule.init(app);
 
   /**
    * Register Error Handler

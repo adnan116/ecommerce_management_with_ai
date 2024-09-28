@@ -64,6 +64,13 @@ export default class User extends Model {
   role!: Role;
 
   @Column({
+    type: DataType.INTEGER,
+    primaryKey: true,
+    defaultValue: 0,
+  })
+  order_count!: number;
+
+  @Column({
     type: DataType.TEXT,
     allowNull: true,
   })

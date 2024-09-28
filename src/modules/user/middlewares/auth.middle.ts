@@ -1,59 +1,73 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import User from "../../../models/user";
-import Role from "../../../models/role";
 import RoleFeature from "../../../models/role-feature";
 import Feature from "../../../models/feature";
-import { jwtSecret } from "../../../configs/app.config";
+import AuthError from "../../../errors/auth.error";
 
-// Auth middleware to verify JWT and permissions
-export const authMiddleware = (requiredFeature: string) => {
-  return async (req: Request, res: Response, next: NextFunction) => {
-    const authHeader = req.headers.authorization;
+const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret_key";
 
-    if (!authHeader || !authHeader.startsWith("Bearer ")) {
-      return res.status(401).json({ message: "No token provided" });
-    }
+export interface AuthRequest extends Request {
+  user?: { userId: number; roleId: number };
+}
 
-    const token = authHeader.split(" ")[1];
+// Authenticate JWT token
+export const authMiddleware = async (
+  req: AuthRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader) {
+    next(new AuthError("No token provided"));
+  }
+
+  const token = authHeader ? authHeader.split(" ")[1] : "";
+
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET) as {
+      userId: number;
+      roleId: number;
+    };
+    req.user = { userId: decoded.userId, roleId: decoded.roleId };
+    next();
+  } catch (err) {
+    next(new AuthError("Invalid or expired token"));
+  }
+};
+
+// Check if user has permission for the requested feature
+export const checkPermission = (featureName: string) => {
+  return async (req: AuthRequest, res: Response, next: NextFunction) => {
+    const { roleId } = req.user!;
 
     try {
-      // Verify token
-      const decodedToken: any = jwt.verify(token, jwtSecret as jwt.Secret);
-
-      // Find the user by ID
-      const user = await User.findOne({
-        where: { id: decodedToken.userId },
-        include: [Role],
+      // Find the feature by its name
+      const feature = await Feature.findOne({
+        where: { feature_name: featureName },
       });
-
-      if (!user) {
-        return res.status(401).json({ message: "User not found" });
+      if (!feature) {
+        next(new AuthError("Feature not found in the system"));
       }
 
-      // Check if the role has the required feature
+      // Check if the role has access to the feature
       const roleFeature = await RoleFeature.findOne({
         where: {
-          role_id: user.role_id,
+          role_id: roleId,
+          feature_id: feature?.id,
         },
-        include: [
-          {
-            model: Feature,
-            where: { feature_name: requiredFeature },
-          },
-        ],
       });
 
       if (!roleFeature) {
-        return res.status(403).json({ message: "Insufficient permissions" });
+        next(
+          new AuthError("You do not have permission to access this feature")
+        );
       }
-
-      // User and permission are valid, proceed to the next middleware
-      req.user = { id: user.id, role: user.role_id };
       next();
     } catch (error) {
-      console.error("Authorization error:", error);
-      res.status(401).json({ message: "Invalid token" });
+      console.error("Permission check error:", error);
+      next(error);
     }
   };
 };

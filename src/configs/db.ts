@@ -26,6 +26,7 @@ export const syncDatabase = async () => {
   try {
     // Create the schema if it doesn't exist
     await sequelize.query("CREATE SCHEMA IF NOT EXISTS users");
+    await sequelize.query("CREATE SCHEMA IF NOT EXISTS ecommerce");
 
     await sequelize.sync({ force: false });
     console.log(
