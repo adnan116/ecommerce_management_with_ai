@@ -8,7 +8,8 @@
     "start": "node dist/server.js",
     "dev": "nodemon",
     "build": "tsc",
-    "init:roles": "ts-node src/scripts/initRolesAndAdminUser.ts"
+    "init:roles": "ts-node src/scripts/init-roles-admin-user.ts",
+    "init:data": "ts-node src/scripts/init-database-data.ts"
   },
   "repository": {
     "type": "git",
@@ -23,9 +24,11 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
+    "csv-parser": "^3.0.0",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "express-validator": "^7.2.0",
+    "fs": "^0.0.1-security",
     "jsonwebtoken": "^9.0.2",
     "keys-transform": "^1.3.0",
     "lodash": "^4.17.21",

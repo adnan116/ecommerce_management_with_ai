@@ -8,8 +8,10 @@ import {
   BelongsTo,
   CreatedAt,
   UpdatedAt,
+  HasMany,
 } from "sequelize-typescript";
 import Category from "./category";
+import OrderItem from "./order-item";
 
 @Table({
   tableName: "products",
@@ -58,6 +60,9 @@ export default class Product extends Model {
     allowNull: true,
   })
   created_by!: string;
+
+  @HasMany(() => OrderItem)
+  orderItems!: OrderItem[];
 
   @CreatedAt
   @Index

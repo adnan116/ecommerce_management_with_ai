@@ -101,4 +101,19 @@ router.get(
   })
 );
 
+// Get all products list with pagination
+router.get(
+  "/total-sales-per-category",
+  [authMiddleware, checkPermission("get_products_sale_by_category")],
+  wrap(async (req: Request, res: Response, next: NextFunction) => {
+    const productService = Container.get(ProductService);
+    const totalSalesPerCategoryProducts =
+      await productService.getTotalSalesPerCategory();
+    res.status(200).json({
+      message: "Request successful",
+      data: totalSalesPerCategoryProducts,
+    });
+  })
+);
+
 export default router;

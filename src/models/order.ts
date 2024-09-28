@@ -71,7 +71,6 @@ export default class Order extends Model {
   @Column({ type: DataType.DATE, allowNull: true, field: "updated_at" })
   updated_at!: Date;
 
-
   @HasMany(() => OrderItem)
   order_items!: OrderItem[];
 }

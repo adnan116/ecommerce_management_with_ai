@@ -16,6 +16,7 @@ import { jwtSecret, tokenExpireTime } from "../../../configs/app.config";
 import AuthError from "../../../errors/auth.error";
 import Product from "../../../models/product";
 import Category from "../../../models/category";
+import { sequelize } from "../../../configs/db";
 
 @Service()
 export default class ProductService {
@@ -118,7 +119,7 @@ export default class ProductService {
     page: number,
     limit: number
   ): Promise<IPaginatedProductResult> {
-    const offset = (page - 1) * limit; 
+    const offset = (page - 1) * limit;
     // Fetch products and count the total products
     const { rows: products, count: totalProducts } =
       await Product.findAndCountAll({
@@ -127,12 +128,44 @@ export default class ProductService {
         include: [{ all: true }],
       });
 
-    const totalPages = Math.ceil(totalProducts / limit); 
+    const totalPages = Math.ceil(totalProducts / limit);
+    const camelCasedData = products.map((product) =>
+      toCamelKeys(product.get({ plain: true }))
+    );
     return {
-      products,
+      products: camelCasedData as any,
       totalProducts,
       totalPages,
       currentPage: page,
     };
+  }
+
+  async getTotalSalesPerCategory(): Promise<Response> {
+    try {
+      const totalSalesPerCategory = await sequelize.query(
+        `SELECT
+          c.name AS categoryName,
+          SUM(oi.quantity * p.price) AS totalSales
+        FROM
+          ecommerce.categories c
+          INNER JOIN ecommerce.products p ON c.id = p.category_id
+          INNER JOIN ecommerce.order_items oi ON p.id = oi.product_id
+        GROUP BY
+          c.name;`,
+        {
+          type: (sequelize as any).QueryTypes.SELECT,
+        }
+      );
+
+      // Convert the result to camelCase
+      const camelCasedData = totalSalesPerCategory.map((data: any) =>
+        toCamelKeys(data)
+      );
+
+      // Send the result
+      return camelCasedData as any;
+    } catch (error) {
+      throw error;
+    }
   }
 }

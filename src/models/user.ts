@@ -7,9 +7,11 @@ import {
   BelongsTo,
   CreatedAt,
   UpdatedAt,
+  HasMany,
 } from "sequelize-typescript";
 import Role from "./role";
 import PersonInfo from "./person-info";
+import Order from "./order";
 
 @Table({
   tableName: "user",
@@ -90,4 +92,7 @@ export default class User extends Model {
   @UpdatedAt
   @Column({ type: DataType.DATE, field: "updated_at" })
   updated_at!: Date;
+
+  @HasMany(() => Order)
+  orders!: Order[];
 }
