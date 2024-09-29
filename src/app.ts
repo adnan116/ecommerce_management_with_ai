@@ -34,22 +34,16 @@ export default async function appFactory(): Promise<Application> {
       buf: Buffer,
       encoding: string
     ) => {
-      // place for sniffing raw request
       return true;
     },
   });
 
   // Sync the models after the connection is established
-  // await testDBConnection();
-  await testDBConnection().then(syncDatabase);
+  await testDBConnection();
 
   // using json parser and urlencoder
   app.use(jsonParser);
   app.use(urlencoded({ extended: true }));
-
-  // enabling loggin of HTTP request using morgan
-  // create a write stream (in append mode)
-  // const accessLogStream = fs.createWriteStream(path.join(__dirname, "access.log"), { flags: "a" });
 
   // for handling uncaught exception from application
   process.on("uncaughtException", (err) => {

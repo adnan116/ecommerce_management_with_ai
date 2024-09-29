@@ -57,13 +57,13 @@ export default class PersonInfo extends Model {
 
   @Column({
     type: DataType.TEXT,
-    allowNull: false,
+    allowNull: true,
   })
   created_by!: string;
 
   @Column({
     type: DataType.DATE,
-    allowNull: false,
+    allowNull: true,
     defaultValue: DataType.NOW,
   })
   created_at!: Date;

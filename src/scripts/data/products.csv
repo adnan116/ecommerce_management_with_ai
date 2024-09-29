@@ -1,101 +1,82 @@
-name,price,stock,category_id,created_by,created_at,updated_by,updated_at
-Its,752.35,51,1,admin,2024-09-23 14:47:07,admin,2024-01-18 19:14:09
-Rather,428.76,3,3,admin,2024-08-20 09:03:02,,
-Gas,810.12,92,3,admin,2024-01-23 12:59:32,,
-Line,797.1,78,5,admin,2024-07-03 07:37:18,admin,2024-02-01 09:06:18
-Church,230.92,54,2,admin,2024-06-19 15:37:00,admin,2024-02-19 00:41:52
-View,702.88,74,3,admin,2024-09-09 17:41:19,admin,2024-06-08 18:46:20
-You,301.97,62,2,admin,2024-03-10 01:14:14,admin,2024-07-30 23:53:01
-Woman,456.4,81,4,admin,2024-03-26 23:19:18,admin,2024-02-26 06:45:06
-When,460.23,48,3,admin,2024-06-29 02:26:25,admin,2024-05-18 13:22:00
-Party,469.2,79,4,admin,2024-02-22 08:56:48,,
-Discover,945.38,88,5,admin,2024-04-24 23:28:48,,
-Knowledge,977.92,38,4,admin,2024-05-23 06:44:26,,
-Ago,424.17,70,3,admin,2024-01-17 04:24:36,admin,2024-07-30 13:50:50
-Tough,636.21,81,2,admin,2024-02-28 06:03:51,admin,2024-04-22 17:33:14
-Whom,196.44,63,4,admin,2024-07-04 02:08:17,,
-Behavior,604.97,35,2,admin,2024-05-09 15:55:21,admin,2024-02-26 23:48:27
-Letter,979.19,11,5,admin,2024-06-05 20:43:00,admin,2024-09-06 13:04:19
-Next,715.94,86,4,admin,2024-07-05 08:44:50,admin,2024-06-19 18:32:40
-Despite,582.08,5,4,admin,2024-05-31 14:00:32,admin,2024-02-11 13:13:12
-Know,833.1,18,3,admin,2024-02-29 21:27:07,admin,2024-07-22 07:43:40
-Act,722.44,24,1,admin,2024-04-23 17:13:12,,
-Same,43.24,19,2,admin,2024-09-08 12:04:30,,
-Thank,714.28,54,4,admin,2024-09-21 05:56:40,admin,2024-05-22 00:31:58
-Sure,122.16,90,4,admin,2024-08-30 13:05:28,admin,2024-02-20 03:54:07
-Care,269.51,13,2,admin,2024-02-24 11:13:13,admin,2024-04-25 04:48:35
-Full,986.23,1,3,admin,2024-06-02 06:31:20,,
-Specific,543.18,43,4,admin,2024-06-04 07:32:27,admin,2024-04-25 02:01:15
-Almost,482.86,33,5,admin,2024-08-10 17:03:07,,
-Than,285.7,31,5,admin,2024-05-26 18:19:26,,
-Instead,909.17,97,5,admin,2024-05-23 10:32:46,,
-Board,388.56,43,5,admin,2024-07-08 17:15:01,,
-Hundred,843.7,99,1,admin,2024-03-27 08:07:57,,
-Seek,859.33,76,3,admin,2024-05-14 00:11:12,admin,2024-01-16 17:28:37
-Medical,144.13,18,5,admin,2024-02-04 11:11:10,,
-Walk,84.86,37,4,admin,2024-01-15 15:34:20,,
-Agent,197.1,18,2,admin,2024-01-18 02:15:22,,
-Authority,165.89,84,5,admin,2024-03-14 11:01:17,admin,2024-08-29 14:42:56
-Attack,262.71,55,3,admin,2024-09-09 07:55:09,,
-Political,976.0,86,1,admin,2024-02-02 14:20:31,,
-Former,99.77,81,2,admin,2024-07-13 07:02:54,,
-Live,354.38,97,2,admin,2024-02-20 20:25:47,,
-Language,494.07,16,1,admin,2024-06-20 15:49:21,,
-Kind,872.79,24,5,admin,2024-05-20 01:19:24,admin,2024-09-26 00:20:57
-Hot,573.22,40,2,admin,2024-05-22 12:38:49,,
-Fall,41.37,24,5,admin,2024-01-17 10:54:54,,
-Cold,388.82,64,3,admin,2024-08-16 05:20:38,,
-My,781.87,51,2,admin,2024-02-03 14:28:54,,
-Little,454.26,14,4,admin,2024-09-19 18:08:47,admin,2024-02-29 04:09:49
-Become,465.0,61,2,admin,2024-07-11 09:33:31,admin,2024-03-11 00:19:34
-Unit,26.84,74,4,admin,2024-01-29 08:51:11,,
-Father,387.29,25,2,admin,2024-03-04 16:04:02,admin,2024-09-13 14:40:12
-Raise,951.41,94,5,admin,2024-05-20 03:27:04,,
-Paper,52.67,38,1,admin,2024-03-04 09:28:09,,
-Outside,690.16,89,4,admin,2024-06-06 01:41:56,admin,2024-05-28 14:53:32
-Central,310.88,80,1,admin,2024-03-03 06:41:27,,
-Experience,484.43,13,4,admin,2024-01-23 07:10:20,,
-Blood,487.85,67,4,admin,2024-06-15 23:02:15,admin,2024-02-03 19:10:57
-Team,55.6,81,3,admin,2024-01-01 15:25:23,admin,2024-04-22 14:49:41
-Feeling,595.33,58,5,admin,2024-06-17 07:13:00,,
-Former,923.55,46,5,admin,2024-04-26 08:02:51,admin,2024-01-03 08:34:34
-Recent,53.72,82,3,admin,2024-05-13 14:02:19,admin,2024-06-23 04:03:00
-Conference,197.57,63,4,admin,2024-09-20 21:17:09,admin,2024-07-01 16:05:38
-Operation,727.02,6,1,admin,2024-08-23 01:15:51,admin,2024-05-22 03:25:35
-Itself,465.78,99,1,admin,2024-02-21 10:18:53,,
-South,165.4,63,1,admin,2024-06-21 01:02:34,,
-Drug,888.43,39,3,admin,2024-08-02 20:32:47,,
-Assume,785.26,55,1,admin,2024-08-09 19:40:37,,
-Water,672.98,96,3,admin,2024-07-06 17:37:39,,
-Maybe,682.34,73,2,admin,2024-01-14 16:27:24,admin,2024-07-28 23:24:36
-Hear,123.76,57,1,admin,2024-06-07 18:46:23,admin,2024-01-16 10:41:41
-Street,746.29,75,2,admin,2024-05-12 03:09:20,admin,2024-07-09 23:43:09
-Also,643.09,75,4,admin,2024-06-25 22:19:55,admin,2024-05-04 06:46:00
-Result,277.1,15,4,admin,2024-01-04 05:25:23,,
-Last,809.21,34,5,admin,2024-08-03 10:49:47,,
-Lose,277.01,11,5,admin,2024-05-02 23:19:45,,
-Natural,220.57,52,5,admin,2024-06-23 21:37:00,admin,2024-07-13 06:59:17
-Total,487.5,45,3,admin,2024-06-20 07:54:15,,
-Southern,739.35,11,1,admin,2024-07-24 09:02:53,,
-Ahead,82.68,19,5,admin,2024-07-20 16:24:05,,
-Ready,414.12,19,5,admin,2024-05-06 00:26:36,admin,2024-03-09 11:55:26
-History,151.18,43,4,admin,2024-04-21 21:37:37,admin,2024-05-23 20:54:22
-Decade,623.0,9,4,admin,2024-03-31 02:38:36,,
-Meet,609.16,99,4,admin,2024-06-24 21:38:46,,
-Room,235.78,80,3,admin,2024-05-09 04:37:13,admin,2024-05-12 14:42:07
-Whom,543.26,7,1,admin,2024-07-01 18:39:23,,
-Property,222.85,54,3,admin,2024-02-28 06:09:47,,
-Author,414.57,94,2,admin,2024-09-06 13:23:39,admin,2024-07-25 17:41:29
-Election,692.1,62,4,admin,2024-01-06 18:28:18,admin,2024-04-20 08:22:40
-Forget,595.02,17,1,admin,2024-09-06 10:05:06,,
-Quality,465.36,10,4,admin,2024-09-08 01:41:10,admin,2024-07-09 11:20:44
-Must,95.28,87,1,admin,2024-09-17 23:04:12,admin,2024-01-07 18:32:48
-Occur,637.03,15,1,admin,2024-04-02 02:39:53,,
-Home,480.96,44,3,admin,2024-06-06 21:39:30,,
-Area,296.02,31,3,admin,2024-06-18 06:21:38,,
-Spring,165.96,46,3,admin,2024-04-03 13:26:36,,
-She,549.09,83,2,admin,2024-06-28 18:06:26,,
-Store,131.14,44,1,admin,2024-06-08 11:53:16,admin,2024-01-27 04:32:49
-Civil,821.27,47,5,admin,2024-08-16 03:04:32,admin,2024-03-18 08:12:36
-Spring,694.79,97,4,admin,2024-03-18 11:12:48,,
-School,223.91,46,1,admin,2024-09-07 16:53:49,admin,2024-04-18 01:31:13
+id,name,price,stock,category_id,created_by,updated_by
+6,Field,464.51,63,3,admin,admin
+7,Long,195.23,63,1,admin,admin
+8,Soon,834.26,48,1,admin,admin
+3,Smartphone,599.99,155,1,3,
+9,Law,144.14,42,2,admin,admin
+11,High,719.57,53,3,admin,admin
+4,Long,195.23,63,1,admin,admin
+5,Soon,834.26,48,1,admin,admin
+12,Believe,981.53,28,2,admin,admin
+10,There,710.36,48,1,admin,admin
+14,White,834.09,32,1,admin,admin
+19,White,834.09,32,1,admin,admin
+16,Institution,868.68,45,3,admin,admin
+20,Under,910.53,21,1,admin,admin
+28,Under,910.53,21,1,admin,admin
+21,Begin,561.82,27,3,admin,admin
+22,Power,715.27,22,2,admin,admin
+23,On,233.47,54,3,admin,admin
+33,Run,450.4,60,1,admin,admin
+24,Run,450.4,60,1,admin,admin
+29,Picture,797.56,34,3,admin,admin
+43,Laugh,66.5,24,1,admin,admin
+31,Laugh,66.5,24,1,admin,admin
+48,Consumer,106.41,35,1,admin,admin
+34,Politics,85.11,80,3,admin,admin
+35,Consumer,106.41,35,1,admin,admin
+36,Animal,924.22,95,3,admin,admin
+37,Attorney,466.55,6,2,admin,admin
+39,Wind,814.17,45,2,admin,admin
+40,Rich,866.84,47,3,admin,admin
+41,Watch,307.68,21,3,admin,admin
+42,Door,911.59,87,2,admin,admin
+72,Choose,434.44,52,1,admin,admin
+45,Now,12.11,53,3,admin,admin
+47,Choose,434.44,52,1,admin,admin
+50,Another,990.99,76,2,admin,admin
+90,Sea,343.41,50,1,admin,admin
+53,Kitchen,572.9,25,3,admin,admin
+54,Need,455.36,91,3,admin,admin
+55,Future,452.19,24,2,admin,admin
+56,Sea,343.41,50,1,admin,admin
+58,She,487.5,24,2,admin,admin
+59,Create,431.29,92,2,admin,admin
+60,Floor,541.81,39,2,admin,admin
+62,Its,752.35,51,1,admin,admin
+64,Church,230.92,54,2,admin,admin
+65,View,702.88,74,3,admin,admin
+66,You,301.97,62,2,admin,admin
+67,Woman,456.4,81,4,admin,admin
+68,When,460.23,48,3,admin,admin
+69,Ago,424.17,70,3,admin,admin
+70,Tough,636.21,81,2,admin,admin
+71,Behavior,604.97,35,2,admin,admin
+73,Next,715.94,86,4,admin,admin
+74,Despite,582.08,5,4,admin,admin
+75,Know,833.1,18,3,admin,admin
+76,Thank,714.28,54,4,admin,admin
+77,Sure,122.16,90,4,admin,admin
+78,Care,269.51,13,2,admin,admin
+79,Specific,543.18,43,4,admin,admin
+80,Seek,859.33,76,3,admin,admin
+83,Little,454.26,14,4,admin,admin
+84,Become,465,61,2,admin,admin
+85,Father,387.29,25,2,admin,admin
+86,Outside,690.16,89,4,admin,admin
+87,Blood,487.85,67,4,admin,admin
+88,Team,55.6,81,3,admin,admin
+91,Conference,197.57,63,4,admin,admin
+92,Operation,727.02,6,1,admin,admin
+93,Maybe,682.34,73,2,admin,admin
+94,Hear,123.76,57,1,admin,admin
+95,Street,746.29,75,2,admin,admin
+96,Also,643.09,75,4,admin,admin
+99,History,151.18,43,4,admin,admin
+100,Room,235.78,80,3,admin,admin
+101,Author,414.57,94,2,admin,admin
+102,Election,692.1,62,4,admin,admin
+103,Quality,465.36,10,4,admin,admin
+104,Must,95.28,87,1,admin,admin
+105,Store,131.14,44,1,admin,admin
+107,School,223.91,46,1,admin,admin

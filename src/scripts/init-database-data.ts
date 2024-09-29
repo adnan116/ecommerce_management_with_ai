@@ -8,7 +8,7 @@ import {
   dbName,
   dbPassword,
   dbPort,
-} from "../configs/app.config";
+} from "../configs/app.config"; // Adjust the path as necessary
 
 const client = new Client({
   user: dbUser,
@@ -18,6 +18,7 @@ const client = new Client({
   port: Number(dbPort),
 });
 
+// Function to connect to the database
 async function connectDb() {
   try {
     await client.connect();
@@ -27,6 +28,7 @@ async function connectDb() {
   }
 }
 
+// Function to insert data into a table from a CSV file
 async function insertDataIntoTable(
   tableName: string,
   columns: string[],
@@ -34,7 +36,7 @@ async function insertDataIntoTable(
 ) {
   return new Promise<void>((resolve, reject) => {
     const filePath = path.join(__dirname, csvFilePath);
-    const queries: string[] = [];
+    const queries: Promise<any>[] = []; // Array to hold insert promises
 
     fs.createReadStream(filePath)
       .pipe(csvParser())
@@ -45,105 +47,123 @@ async function insertDataIntoTable(
         const query = `INSERT INTO ${tableName} (${columns.join(
           ", "
         )}) VALUES (${placeholders})`;
+
+        // Push each insert promise to the array
         queries.push(
-          client
-            .query(query, values)
-            .catch((err) => console.error("Error inserting data:", err)) as any
+          client.query(query, values).catch((err) => {
+            console.error("Error inserting data:", err);
+          })
         );
       })
       .on("end", async () => {
         try {
-          await Promise.all(queries);
+          await Promise.all(queries); // Wait for all insert operations to complete
           console.log(`Data inserted into ${tableName} from ${csvFilePath}`);
           resolve();
         } catch (err) {
           console.error(`Error inserting data into ${tableName}:`, err);
           reject(err);
         }
+      })
+      .on("error", (err) => {
+        console.error(`Error reading CSV file ${csvFilePath}:`, err);
+        reject(err);
       });
   });
 }
 
+// Main function to execute the data insertion
 async function main() {
-  await connectDb();
+  await connectDb(); // Connect to the database
 
   try {
-    // Insert data into the users table without id
+    // Insert data into the feature table
+    await insertDataIntoTable(
+      '"users"."feature"',
+      ["id", "feature_name", "is_active"],
+      "./data/features.csv"
+    );
+
+    // Insert data into the role table
+    await insertDataIntoTable(
+      '"users"."role"',
+      ["id", "role_name", "description"],
+      "./data/roles.csv"
+    );
+
+    // Insert data into the role_feature table
+    await insertDataIntoTable(
+      '"users"."role_feature"',
+      ["id", "role_id", "feature_id"],
+      "./data/role_features.csv"
+    );
+
+    // Insert data into the person_info table
+    await insertDataIntoTable(
+      '"users"."person_info"',
+      [
+        "id",
+        "first_name",
+        "last_name",
+        "dob",
+        "phone_number",
+        "email",
+        "gender",
+        "religion",
+        "profile_picture",
+      ],
+      "./data/person_info.csv"
+    );
+
+    // Insert data into the user table
     await insertDataIntoTable(
       '"users"."user"',
       [
+        "id",
         "username",
         "password",
         "is_active",
         "person_id",
         "role_id",
         "order_count",
-        "created_by",
-        "created_at",
-        "updated_by",
-        "updated_at",
       ],
       "./data/users.csv"
     );
 
-    // Insert data into the products table without id
+    // Insert data into the categories table
+    await insertDataIntoTable(
+      '"ecommerce"."categories"',
+      ["id", "name"],
+      "./data/categories.csv"
+    );
+
+    // Insert data into the products table
     await insertDataIntoTable(
       '"ecommerce"."products"',
-      [
-        "name",
-        "price",
-        "stock",
-        "category_id",
-        "created_by",
-        "created_at",
-        "updated_by",
-        "updated_at",
-      ],
+      ["id", "name", "price", "stock", "category_id"],
       "./data/products.csv"
     );
 
-    // Insert data into the orders table without id
+    // Insert data into the orders table
     await insertDataIntoTable(
       '"ecommerce"."orders"',
-      [
-        "user_id",
-        "order_date",
-        "status",
-        "created_by",
-        "created_at",
-        "updated_by",
-        "updated_at",
-      ],
+      ["id", "user_id", "order_date", "status"],
       "./data/orders.csv"
     );
 
-    // Insert data into the order_items table without id
+    // Insert data into the order_items table
     await insertDataIntoTable(
       '"ecommerce"."order_items"',
-      [
-        "order_id",
-        "product_id",
-        "quantity",
-        "created_by",
-        "created_at",
-        "updated_by",
-        "updated_at",
-      ],
+      ["id", "order_id", "product_id", "quantity"],
       "./data/order_items.csv"
-    );
-
-    // Insert data into the categories table without id
-    await insertDataIntoTable(
-      '"ecommerce"."categories"',
-      ["name", "created_by", "created_at", "updated_by", "updated_at"],
-      "./data/categories.csv"
     );
   } catch (error) {
     console.error("Error inserting data:", error);
   } finally {
-    await client.end();
+    await client.end(); // Close the database connection
     console.log("Database connection closed.");
   }
 }
 
+// Execute the main function and handle any errors
 main().catch((err) => console.error("Error in main function:", err));

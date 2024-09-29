@@ -25,7 +25,7 @@ export default class Category extends Model {
 
   @Column({
     type: DataType.STRING,
-    allowNull: false,
+    allowNull: true,
   })
   name!: string;
 

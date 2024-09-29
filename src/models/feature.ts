@@ -1,34 +1,34 @@
-import { Table, Column, Model, DataType, HasMany } from 'sequelize-typescript';
-import RoleFeature from './role-feature';
+import { Table, Column, Model, DataType, HasMany } from "sequelize-typescript";
+import RoleFeature from "./role-feature";
 
 @Table({
-  tableName: 'feature',
-  schema: 'users',
+  tableName: "feature",
+  schema: "users",
   timestamps: false,
 })
 export default class Feature extends Model {
   @Column({
     type: DataType.TEXT,
-    allowNull: false,
+    allowNull: true,
     unique: true,
   })
   feature_name!: string;
 
   @Column({
     type: DataType.BOOLEAN,
-    allowNull: false,
+    allowNull: true,
   })
   is_active!: boolean;
 
   @Column({
     type: DataType.TEXT,
-    allowNull: false,
+    allowNull: true,
   })
   created_by!: string;
 
   @Column({
     type: DataType.DATE,
-    allowNull: false,
+    allowNull: true,
     defaultValue: DataType.NOW,
   })
   created_at!: Date;
@@ -48,4 +48,3 @@ export default class Feature extends Model {
   @HasMany(() => RoleFeature)
   role_features!: RoleFeature[];
 }
-

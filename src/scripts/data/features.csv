@@ -1,0 +1,11 @@
+id,feature_name,is_active,created_by,updated_by
+2,create_product,1,system,
+3,update_product,1,system,
+4,delete_product,1,system,
+5,get_all_products,1,system,
+6,create_order,1,system,
+7,cancel_order,1,system,
+8,get_user_wise_orders,1,system,
+9,get_ranked_users,1,system,
+10,get_products_sale_by_category,1,system,
+11,get_llm_question_answer,1,system,

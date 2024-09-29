@@ -20,3 +20,7 @@ export const dbName = process.env.DB_NAME || "";
 // user token
 export const jwtSecret = process.env.JWT_SECRET;
 export const tokenExpireTime = process.env.TOKEN_EXPIRE_TIME;
+
+// llm
+export const ollamaBaseUrl = process.env.OLLAMA_BASE_URL;
+export const modelName = process.env.MODEL_NAME;

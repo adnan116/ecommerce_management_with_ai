@@ -1,6 +1,8 @@
-name,created_by,created_at,updated_by,updated_at
-Race,admin,2024-08-27 21:39:48,,
-Short,admin,2024-06-27 22:43:40,admin,2024-04-08 13:00:15
-Law,admin,2024-01-13 22:25:50,admin,2024-02-27 13:21:27
-Party,admin,2024-01-19 08:19:32,admin,2024-07-15 13:42:32
-Cultural,admin,2024-07-11 22:45:29,,
+id,name,created_by,updated_by
+1,Gadjet,syatem,
+2,Natural,admin,admin
+3,Each,admin,admin
+4,Each,admin,admin
+5,Short,admin,admin
+6,Law,admin,admin
+7,Party,admin,admin

@@ -10,6 +10,7 @@ const sequelize = new Sequelize({
   password: dbPassword,
   database: dbName,
   models: [path.join(__dirname, "../models")],
+  logging: false,
 });
 
 export const testDBConnection = async () => {

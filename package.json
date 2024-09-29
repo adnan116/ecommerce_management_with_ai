@@ -8,7 +8,7 @@
     "start": "node dist/server.js",
     "dev": "nodemon",
     "build": "tsc",
-    "init:roles": "ts-node src/scripts/init-roles-admin-user.ts",
+    "sync:database": "ts-node src/scripts/sync-database.ts",
     "init:data": "ts-node src/scripts/init-database-data.ts"
   },
   "repository": {
@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/adnan116/ecommerce_management_with_ai#readme",
   "dependencies": {
+    "@langchain/core": "^0.3.3",
+    "@langchain/ollama": "^0.1.0",
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "csv-parser": "^3.0.0",
