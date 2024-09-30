@@ -54,6 +54,13 @@ npm install
    npm run init:data
    ```
 
+## Project Run
+
+To run the project, use the following command:
+   ```bash
+   npm run dev
+   ```
+
 ## Sample User Credentials
 
 ### Admin User
